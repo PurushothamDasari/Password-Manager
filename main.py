@@ -91,4 +91,17 @@ generate_password_button.grid(row=3,column=2)
 add_details_button = Button(text="Add", command=save_data, font=FONT, width=40)
 add_details_button.grid(row=4,column=1,columnspan=2)
 
+# setting up UI for the new window that shows the saved passwords.
+def show_saved_data():
+    saved_window = Tk()
+    saved_window.title("Saved Credentials")
+    saved_window.config(padx=20, pady=20)
+    with open("data.txt", "r") as data:
+        saved_info = data.read()
+    saved_label = Label(saved_window, text=f"{saved_info}",font=FONT)
+    saved_label.grid(row=0,column=0)
+    saved_window.mainloop()
+
+show_saved_button = Button(text="View saved data",command=show_saved_data,font=FONT,width=40)
+show_saved_button.grid(row=5,column=1,columnspan=2)
 window.mainloop()
