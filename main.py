@@ -37,8 +37,6 @@ def save_data():
     if len(website)==0 or len(credential)==0 or len(password)==0:
         messagebox.showerror(title="Error", message="Please fill all fields")
     else:
-        say_ok =messagebox.askokcancel(title = website, message=f"Once have a look at your entries and confirm\n\nEmail/Username : {credential}\nPassword            : {password}")
-        if say_ok:
             with open("data.txt","a") as data:
                 data.write(f"{website}  |  {credential}  |  {password}\n")
             website_entry.delete(0, END)
@@ -91,7 +89,7 @@ generate_password_button.grid(row=3,column=2)
 add_details_button = Button(text="Add", command=save_data, font=FONT, width=40)
 add_details_button.grid(row=4,column=1,columnspan=2)
 
-# setting up UI for the new window that shows the saved passwords.
+# Setting up UI for the new window that displays the saved passwords and data.
 def show_saved_data():
     saved_window = Tk()
     saved_window.title("Saved Credentials")
